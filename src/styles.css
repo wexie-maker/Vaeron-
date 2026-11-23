@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07080d;
+  --color-elevated: #10131a;
+  --color-subtle: #171b26;
+  --color-fg: #f3eee6;
+  --color-muted: #a39b90;
+  --color-faint: #746d64;
+  --color-line: #2a3040;
+  --color-crimson: #9e2a2b;
+  --color-crimson-fg: #f8f1ea;
+  --color-ok: #8aa384;
+  --font-display: "Cormorant Garamond", Palatino, "Palatino Linotype", serif;
+  --font-sans: Outfit, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+}
+
+:root {
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --space-page: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-crimson);
+    color: var(--color-crimson-fg);
+  }
+}
+
+.film-rule {
+  height: 2px;
+  background: var(--color-crimson);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 2px;
+}
+
+.tap {
+  transition:
+    opacity var(--motion-quick) var(--ease-smooth-out),
+    background-color var(--motion-quick) var(--ease-smooth-out),
+    border-color var(--motion-quick) var(--ease-smooth-out),
+    color var(--motion-quick) var(--ease-smooth-out);
+}
+
+.rise {
+  animation: rise var(--motion-slow) var(--ease-smooth-out) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+
+  .tap {
+    transition: none;
+  }
+}

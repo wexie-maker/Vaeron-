@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#07080d"/>
+  <rect x="4" y="13" width="24" height="15" fill="#10131b" stroke="#2a2e3a" stroke-width="1"/>
+  <path d="M8 25.2 L24 16.4" stroke="#9e2a2b" stroke-width="2.6" stroke-linecap="butt"/>
+  <clipPath id="stick">
+    <rect x="4" y="4" width="24" height="9"/>
+  </clipPath>
+  <g clip-path="url(#stick)">
+    <rect x="4" y="4" width="24" height="9" fill="#f4efe6"/>
+    <path fill="#07080d" d="M4 4h4.5L4.5 13H0z"/>
+    <path fill="#07080d" d="M11.5 4h4.5L12 13H7.5z"/>
+    <path fill="#07080d" d="M19 4h4.5L19.5 13H15z"/>
+    <path fill="#07080d" d="M26.5 4H31l-4 9h-4.5z"/>
+  </g>
+</svg>
